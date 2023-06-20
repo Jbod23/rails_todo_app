@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 10px 0;
+  }
+  
+  li a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    text-decoration: underline;
+  }
+ 
+  body.dark-mode {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  body.dark-mode li a {
+    color: #00ccff;
+  }
+  
+  body.dark-mode li a:hover {
+    color: #33ffcc;
+  }
+  

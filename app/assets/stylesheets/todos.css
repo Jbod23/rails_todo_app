@@ -1,11 +1,71 @@
+/* General styling */
 body {
-    font-family: Arial, sans-serif;
-  }
-  
-  @media (prefers-color-scheme: dark) {
-    body {
-      background: black;
-      color: white;
-      outline: 5px dotted #000;
-    }
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 100%;
+  padding: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 50;
+}
+
+li {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+li a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+li a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #d9d9d9;
+}
+
+body.dark-mode li {
+  background-color: #333;
+}
+
+body.dark-mode li a {
+  color: #00ccff;
+}
+
+body.dark-mode li a:hover {
+  color: #33ffcc;
+}
+
+body.dark-mode button {
+  background-color: #00ccff;
+}
+
+body.dark-mode button:hover {
+  background-color: #0099cc;
+}

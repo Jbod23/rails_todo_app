@@ -1,15 +1,16 @@
-<h1>Todo List</h1>
-<%= link_to 'New Todo Item', new_todo_path %>
-<%= notice %>
-
-<ul>
-  <% @todos.each do |todo| %>
-    <li>
-      <%= todo.title %> <%= todo.completed ? '(Done)' : '(Not Done)' %>
-      <%= link_to 'Edit', edit_todo_path(todo) %>
-      <%= button_to 'Delete', todo_path(todo), 
-      method: :delete, data: { confirm: 'Are you sure?' } %>
-
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1>Todo List</h1>
+  <ul>
+    <% @todos.each do |todo| %>
+      <li>
+        <%= todo.title %> <%= todo.completed ? '(Done)' : '(Not Done)' %>
+        <%= link_to 'Edit', edit_todo_path(todo) %>
+        <%= button_to 'Delete', todo_path(todo), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+  </ul>
+  <div>
+    <%= link_to 'New Todo Item', new_todo_path %>
+    <p id="notice"><%= notice %></p>
+  </div>
+</div>

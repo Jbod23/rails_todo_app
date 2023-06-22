@@ -1,0 +1,10 @@
+<h2>Task: <%= @todo.title %></h2>
+
+<h3>Notes:</h3>
+<ul>
+  <% @notes.each do |note| %>
+    <li><%= note.content %></li>
+  <% end %>
+</ul>
+<%= link_to "Back", todos_path %>
+

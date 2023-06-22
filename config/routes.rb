@@ -3,8 +3,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-
-  resources :todos
   root "todos#index"
+
+  resources :todos do
+    resources :notes, only: [:create]
+  end
+  
 
 end

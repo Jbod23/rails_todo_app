@@ -2,7 +2,7 @@ class TodosController < ApplicationController
         before_action :set_todo, only: [:edit, :update, :destroy]
       
         def index
-          @todos = Todo.order('completed ASC, content_updated_at DESC')
+          @todos = Todo.includes(:notes).order('completed ASC, content_updated_at DESC')
         end
       
         def new
@@ -24,6 +24,11 @@ class TodosController < ApplicationController
           else
             render :edit
           end
+        end
+
+        def show
+          @todo = Todo.find(params[:id])
+          @notes = @todo.notes
         end
       
         def destroy

@@ -1,35 +1,42 @@
-  <div class="container">
-    <h1>Todo List</h1>
-    <ul>
-      <% @todos.each do |todo| %>
-        <li>
-          <%= todo.title %> <%= todo.completed ? '(Done)' : '(Not Done)' %>
-          <%= link_to 'Edit', edit_todo_path(todo) %>
-            <h4>Notes:</h4>
-          <ul>
-            <% todo.notes.each do |note| %>
-              <li><%= note.content %></li>
-            <% end %>
-          </ul>
-
-         
-          <%= link_to 'Show', todo_path(todo) %>
-          
-          <%= form_with(model: [todo, todo.notes.build], local: true) do |form| %>
-            <p>
-              <%= form.label :content, "Add note:" %><br>
-              <%= form.text_area :content %>
-            </p>
-            <p>
-              <%= form.submit "Submit" %>
-            </p>
+<div class="container">
+  <h1>Todo List</h1>
+  <%= button_to 'Clear All Todos', clear_all_todos_path, method: :delete, data: { confirm: 'Are you sure you want to delete all todos?', turbo: false }, class: 'button' %>
+  <ul>
+    <% @todos.each do |todo| %>
+      <li>
+        <%= todo.title %> <%= todo.completed ? '(Done)' : '(Not Done)' %>
+        <br>
+        <% if todo.tags.any? %>
+          Tags: 
+          <% todo.tags.each do |tag| %>
+            <%= tag.name %>
           <% end %>
-          <%= button_to 'Delete', todo_path(todo), method: :delete, data: { confirm: 'Are you sure?' } %>
-        </li>
-      <% end %>
-    </ul>
-    <div>
-      <%= link_to 'New Todo Item', new_todo_path %>
-      <p id="notice"><%= notice %></p>
-    </div>
+        <% else %>
+          No tags
+        <% end %>
+        <br>
+        <%= link_to 'Edit', edit_todo_path(todo) %> <%= link_to 'Show', todo_path(todo) %>
+        <h4>Notes:</h4>
+        <ul>
+          <% todo.notes.each do |note| %>
+            <li><%= note.content %></li>
+          <% end %>
+        </ul>
+        <%= form_with(model: [todo, todo.notes.build], local: true) do |form| %>
+          <p>
+            <%= form.label :content, "Add note:" %><br>
+            <%= form.text_area :content %>
+          </p>
+          <p>
+            <%= form.submit "Submit" %>
+          </p>
+        <% end %>
+        <%= button_to 'Delete', todo_path(todo), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+  </ul>
+  <div>
+    <%= link_to 'New Todo Item', new_todo_path %>
+    <p id="notice"><%= notice %></p>
   </div>
+</div>

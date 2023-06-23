@@ -35,6 +35,12 @@ class TodosController < ApplicationController
           @todo.destroy
           redirect_to todos_path, notice: 'Todo item was successfully destroyed.'
         end
+
+        def clear_all
+          Rails.logger.debug "Clear all action called"
+          Todo.destroy_all
+          redirect_to todos_path, notice: 'All todos have been deleted.'
+        end
       
         private
           def set_todo
@@ -42,7 +48,7 @@ class TodosController < ApplicationController
           end
       
           def todo_params
-            params.require(:todo).permit(:title, :completed)
+            params.require(:todo).permit(:title, :completed, { tag_ids: [] })
           end
 end
       

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_22_025838) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_23_230926) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_025838) do
     t.index ["todo_id"], name: "index_notes_on_todo_id"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags_todos", id: false, force: :cascade do |t|
+    t.bigint "todo_id", null: false
+    t.bigint "tag_id", null: false
+  end
+
   create_table "todos", force: :cascade do |t|
     t.string "title"
     t.boolean "completed"
@@ -30,5 +41,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_025838) do
     t.datetime "content_updated_at"
   end
 
-  add_foreign_key "notes", "todos"
+  add_foreign_key "notes", "todos", on_delete: :cascade
 end

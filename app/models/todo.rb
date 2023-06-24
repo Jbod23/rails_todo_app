@@ -1,6 +1,7 @@
 class Todo < ApplicationRecord
 
   has_many :notes, dependent: :destroy
+  has_and_belongs_to_many :tags, dependent: :destroy
 
     before_save :set_content_updated_at
     def set_content_updated_at

@@ -138,3 +138,21 @@ li {
 .note-form-submit:hover {
   background-color: #45a049;
 }
+
+.todo-status {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.todo-status.done {
+  background-color: green;
+}
+
+.todo-status.not-done {
+  background-color: red;
+}

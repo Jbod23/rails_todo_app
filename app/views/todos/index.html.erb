@@ -8,7 +8,10 @@
   <ul>
     <% @todos.each do |todo| %>
       <li>
-        <span class="todo-title"><%= todo.title %></span> <%= todo.completed ? '(Done)' : '(Not Done)' %>
+        <span class="todo-title"><%= todo.title %></span> <span class="todo-status <%= todo.completed ? 'done' : 'not-done' %>">
+   <%= todo.completed ? 'Done' : 'Not Done' %>
+</span>
+
 
         <div class="todo-content">
         <%= link_to 'Edit', edit_todo_path(todo), class: 'button' %> <%= link_to 'Show', todo_path(todo), class: 'button' %>

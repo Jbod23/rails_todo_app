@@ -5,10 +5,10 @@ namespace :db do
 
       tags = Tag.all
 
-      100.times do
+      10.times do
         todo = Todo.create(title: Faker::Lorem.sentence(word_count: 3), completed: [true, false].sample)
   
-        rand(0..100).times do
+        rand(0..3).times do
           todo.notes.create(content: Faker::Lorem.sentence(word_count: 10))
         end
 

@@ -13,59 +13,128 @@ body {
 
 ul {
   list-style: none;
-  padding: 50;
+  padding: 20px;
 }
 
 li {
-  margin: 10px 0;
+  margin: 10px 0 30px;
   padding: 10px;
   border-radius: 5px;
 }
 
-li a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-li a:hover {
-  text-decoration: underline;
-}
-
-button {
-  background-color: #007bff;
-  color: white;
+.button {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 4px;
+  background-color: #4CAF50; /* Green */
   border: none;
-  padding: 10px;
-  border-radius: 5px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #0056b3;
+.button:hover {
+  background-color: #45a049; /* Darker green */
 }
 
-/* Dark mode */
-body.dark-mode {
-  background-color: #1a1a1a;
-  color: #d9d9d9;
+.todo-title {
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #565bcaab;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  width: auto; 
 }
 
-body.dark-mode li {
-  background-color: #333;
+.todo-content {
+  font-size: 18px;
+  background-color: #c5c7e1df;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 15px;
 }
 
-body.dark-mode li a {
-  color: #00ccff;
+.todo-content ul li {
+  margin-bottom: 15px; /* Adjust this value to change spacing */
+  /* add light grey rounded backgrounds */
+  background-color: #e8e8e8;
+  border-radius: 5px;
 }
 
-body.dark-mode li a:hover {
-  color: #33ffcc;
+.todo-content h4 {
+  font-size: 20px;
+  margin-top: 10px; /* adjust this value as per your preference */
+  margin-bottom: -10px; /* adjust this value as per your preference */
 }
 
-body.dark-mode button {
-  background-color: #00ccff;
+
+.todo-tags {
+  display: inline-block;
+  background-color: #e4e4e4; /* You can change the color */
+  color: rgb(0, 0, 0); /* You can change the text color */
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  margin-right: 5px;
+  font-size: 20px;
 }
 
-body.dark-mode button:hover {
-  background-color: #0099cc;
+.tag {
+  background-color: #4cdcec; /* Example background color */
+  border-radius: 5px;
+  padding: 2px;
+  margin-right: 5px; /* Space between tags */
+}
+
+.note-form {
+  margin-bottom: 20px;
+}
+
+.note-form-group {
+  margin-bottom: 10px;
+}
+
+.note-form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.note-form-textarea {
+  resize: none;
+  width: 30%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.note-form-textarea:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+
+.note-form-submit {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.note-form-submit:hover {
+  background-color: #45a049;
 }
